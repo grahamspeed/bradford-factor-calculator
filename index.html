@@ -1,0 +1,89 @@
+<style>
+	@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400');
+	body {
+		height: 100%;
+		background-color: #eee;
+		font-family: 'Source Sans Pro', sans-serif;
+	}
+	label h3 {
+		font-size: 26px;
+		color: #fff;
+		font-weight: 400;
+		margin: 0;
+	}
+	label p {
+		font-size: 20px;
+		color: #f2f2f2;
+		font-weight: 300;
+		margin: 0;
+	}
+	#blog-container {
+		width: 748px;
+		height: 100%;
+		margin: 0 auto;
+		padding: 370px 30px;
+		background-color: #fff;
+	}
+	#calculator {
+		width: 100%;
+		height: 300px;
+		border-radius: 12px;
+		background-color: #33afdf;
+	}
+	.container {
+		width: 420px;
+		height: 100%;
+		margin: 0 auto;
+		/*background-color: blue;*/
+	}
+	form fieldset {
+		border: none;
+	}
+	form fieldset:first-child {
+		margin-bottom: 12px;
+	}
+	form label {
+		float: left;
+	}
+	form input[type=text] {
+		float: right;
+		height: 58px;
+		border: none;
+		border-radius: 6px;
+		font-size: 24px;
+		width: 110px;
+		text-align: center;
+	}
+	form .button {
+		display: inline-block;
+		font-family: 'Source Sans Pro', sans-serif;
+		font-size: 20px;
+	}
+</style>
+
+<div id="blog-container">
+	<div id="calculator">
+		<div class="container">
+			<form>
+				<fieldset>
+					<label>
+						<h3>Absence Count</h3>
+						<p>Number of occurrences</p>
+					</label>
+					<input type="text" id="absence-count" name="absence-count" maxlength="3">
+				</fieldset>
+				<fieldset>
+					<label>
+						<h3>Days Absent</h3>
+						<p>Total number of absent days</p>
+					</label>
+					<input type="text" id="absence-count" name="absence-count" maxlength="3">
+				</fieldset>
+				<fieldset>
+					<input type="submit" id="calc-submit" name="calc-submit" value="Calculate" class="button submit">
+					<input type="reset" id="calc-reset" name="calc-reset" value="Reset" class="button reset">
+				</fieldset>
+			</form>
+		</div>
+	</div>
+</div>
