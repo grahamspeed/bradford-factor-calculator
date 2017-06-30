@@ -26,7 +26,7 @@
 		margin: 0 auto;
 	}
 	#calculator form {
-		padding: 50px 0px 140px 0;
+		padding: 50px 0px 170px 0;
 	}
 	#calculator fieldset {
 		border: none;
@@ -47,26 +47,6 @@
 		width: 110px;
 		text-align: center;
 		outline: none;
-	}
-	#calculator form button {
-		display: inline-block;
-		font-family: 'Source Sans Pro', sans-serif;
-		font-size: 24px;
-		padding: 10px 26px;
-		border: none;
-		border-radius: 50px;
-		box-shadow: 0px 7px 25px rgba(0,0,0,0.1);
-		background-color: #fff;
-    margin: 35px 20px 25px 0;
-		cursor: pointer;
-		outline: none;
-	}
-	#calculator form button:last-child {
-		background-color: #f6516f !important;
-		color: #fff;
-	}
-	#calculator .buttons {
-		text-align: center;
 	}
 	#calculator .score {
 		position: absolute;
@@ -100,10 +80,6 @@
 				</label>
 				<input type="text" id="days-count" name="days-count" maxlength="3">
 			</fieldset>
-			<fieldset class="buttons">
-				<button type="submit" id="calc-submit" name="calc-submit">Calculate</button>
-				<button type="reset" id="calc-reset" name="calc-reset">Reset</button>
-			</fieldset>
 		</form>
 	</div>
 	<div class="score">
@@ -115,18 +91,15 @@
 <script>
 function calculate(){
 	$('#result').html('...');
-
 	var absence = Number($('#absence-count').val());
 	var days = Number($('#days-count').val());
 	console.log(absence)
 	console.log(days)
 	if ( absence > 0 && days > 0 ){
 		var bradfordFactor = (absence*absence)*days;
-
 		$('#result').html(bradfordFactor.toString())
+		}
 	}
-}
-
 	$( document ).ready(function() {
 		$('#days-count,#absence-count').on('keyup change', function() {
 			calculate();
