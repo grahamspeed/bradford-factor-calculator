@@ -98,7 +98,7 @@
 					<h3>Days Absent</h3>
 					<p>Total number of absent days</p>
 				</label>
-				<input type="text" id="absence-count" name="absence-count" maxlength="3">
+				<input type="text" id="days-count" name="days-count" maxlength="3">
 			</fieldset>
 			<fieldset class="buttons">
 				<button type="submit" id="calc-submit" name="calc-submit">Calculate</button>
@@ -108,6 +108,28 @@
 	</div>
 	<div class="score">
 		<h3>Bradford Factor Score:</h3>
-		<h3>999</h3>
+		<h3 id="result">...</h3>
 	</div>
 </div>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>
+function calculate(){
+	$('#result').html('...');
+
+	var absence = Number($('#absence-count').val());
+	var days = Number($('#days-count').val());
+	console.log(absence)
+	console.log(days)
+	if ( absence > 0 && days > 0 ){
+		var bradfordFactor = (absence*absence)*days;
+
+		$('#result').html(bradfordFactor.toString())
+	}
+}
+
+	$( document ).ready(function() {
+		$('#days-count,#absence-count').on('keyup change', function() {
+			calculate();
+		});
+	});
+</script>
