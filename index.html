@@ -37,7 +37,7 @@
 	#calculator form label {
 		float: left;
 	}
-	#calculator form input[type=text] {
+	#calculator form input[type=number] {
 		float: right;
 		height: 58px;
 		border: none;
@@ -71,14 +71,14 @@
 					<h3>Absence Count</h3>
 					<p>Number of occurrences</p>
 				</label>
-				<input type="text" id="absence-count" name="absence-count" maxlength="3">
+				<input type="number" id="absence-count" name="absence-count" maxlength="3">
 			</fieldset>
 			<fieldset>
 				<label>
 					<h3>Days Absent</h3>
 					<p>Total number of absent days</p>
 				</label>
-				<input type="text" id="days-count" name="days-count" maxlength="3">
+				<input type="number" id="days-count" name="days-count" maxlength="3">
 			</fieldset>
 		</form>
 	</div>
@@ -96,13 +96,22 @@ function calculate(){
 	console.log(absence)
 	console.log(days)
 	if ( absence > 0 && days > 0 ){
-		var bradfordFactor = (absence*absence)*days;
+		bradfordFactor = (absence*absence)*days;
 		$('#result').html(bradfordFactor.toString())
 		}
 	}
 	$( document ).ready(function() {
 		$('#days-count,#absence-count').on('keyup change', function() {
 			calculate();
+			if (bradfordFactor <= 50) {
+				$('.score').css("background-color", "#2ecc71");
+			} else if (bradfordFactor >= 51 && bradfordFactor <= 124) {
+				$('.score').css("background-color", "#fcd122");
+			} else if (bradfordFactor >= 125 && bradfordFactor <= 399) {
+				$('.score').css("background-color", "#fc9d22");
+			} else {
+				$('.score').css("background-color", "#e74c3c");
+			}
 		});
 	});
 </script>
