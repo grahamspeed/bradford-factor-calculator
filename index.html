@@ -62,7 +62,26 @@
 	#calculator .score h3:last-child {
 		font-size: 40px;
 	}
+
+	@media (max-width: 599px) {
+		#calculator {
+			text-align: center;
+		}
+		#calculator .container {
+			width: 100%;
+		}
+		#calculator form label {
+			float: none;
+		}
+		#calculator form input[type=number] {
+			float: none;
+			margin-top: 10px;
+		}
+	}
 </style>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
 <div id="calculator">
 	<div class="container">
 		<form>
